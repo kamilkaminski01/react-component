@@ -1,0 +1,21 @@
+.select-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em 1.5em;
+
+  width: 16em;
+  height: 25em;
+
+  @include border;
+
+  .select-form__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .select-form__header-close {
+      cursor: pointer;
+    }
+  }
+}

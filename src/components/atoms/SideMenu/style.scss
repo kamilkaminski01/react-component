@@ -1,0 +1,22 @@
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  max-height: 14em;
+  padding: 0.5em;
+
+  @include border;
+
+  img {
+    padding: 0.35em;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: 0.1s ease-in-out background-color;
+
+    &:hover {
+      background-color: $fog;
+    }
+  }
+}

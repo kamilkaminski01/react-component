@@ -1,0 +1,5 @@
+@mixin border {
+  border: 1px solid $fog;
+  border-radius: 0.5em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}

@@ -1,9 +1,10 @@
 import './App.scss'
+import Menu from 'components/organisms/Menu'
 
 function App() {
   return (
     <div className="app">
-      <p>Initial setup</p>
+      <Menu />
     </div>
   )
 }
