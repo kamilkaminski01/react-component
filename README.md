@@ -21,7 +21,7 @@ npm install
 npm run dev
 ```
 
-The application will be running at `localhost:5173`
+The application will be running at `localhost:5173/react-component/`
 
 ## Code quality standards
 
