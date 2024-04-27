@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+<h1 align="center">React Component</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This tags selecting component lets users search, select and delete selected
+tags. In addition, there is an indicator which provides information if the
+amount of selected tags will improve visibility of an articles that the
+tags will ultimately be placed into.
 
-Currently, two official plugins are available:
+## Resources
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User interface is written in `TypeScript` using the [React](https://react.dev/) framework. <br/>
+- Styling is handled by [SASS](https://sass-lang.com/).<br/>
+- Frontend building tool is handled by [Vite](https://vitejs.dev/). <br/>
+- Deployed to [GitHub Pages](https://pages.github.com/).
 
-## Expanding the ESLint configuration
+## Running from sources
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname
-  }
-}
+```sh
+git clone https://github.com/kamilkaminski01/react-component.git
+cd react-component/
+npm install
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+The application will be running at `localhost:5173`
+
+## Code quality standards
+
+All frontend code is written in `TypeScript`, formatted and verified by the `prettier`
+and `eslint` tools.
+
+Custom functions and methods use **types** to improve IDE code
+completions, prevent from type errors and extend code documentation.
+
+## Preview
+
+![demo](https://raw.githubusercontent.com/kamilkaminski01/react-component/main/src/assets/images/demo/demo1.png)
+![demo](https://raw.githubusercontent.com/kamilkaminski01/react-component/main/src/assets/images/demo/demo2.png)
+![demo](https://raw.githubusercontent.com/kamilkaminski01/react-component/main/src/assets/images/demo/demo3.png)
+![demo](https://raw.githubusercontent.com/kamilkaminski01/react-component/main/src/assets/images/demo/demo4.png)
