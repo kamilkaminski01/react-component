@@ -11,7 +11,7 @@ const SideMenu = () => {
       <img src={InfoIcon} />
       <img src={ChatIcon} />
       <img src={SettingsIcon} />
-      <img src={TagIcon} />
+      <img src={TagIcon} className="side-menu__icon--active" />
       <img src={AddIcon} />
     </div>
   )
