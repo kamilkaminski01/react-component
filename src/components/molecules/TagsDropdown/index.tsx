@@ -3,8 +3,9 @@ import { TagsDropdownProps } from './interface'
 import SearchIcon from 'assets/icons/search-icon.svg'
 import { tagsOptions } from 'utils/consts'
 import Checkbox from 'components/atoms/Checkbox'
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import classNames from 'classnames'
+import ClearIcon from 'assets/icons/clear-icon.svg'
 
 const TagsDropdown = ({
   showDropdown,
@@ -12,6 +13,8 @@ const TagsDropdown = ({
   selectedTags,
   setSelectedTags
 }: TagsDropdownProps) => {
+  const [searchQuery, setSearchQuery] = useState('')
+
   const handleCheckboxChange = (value: string) => {
     const updatedOptions = [...selectedTags]
     if (updatedOptions.includes(value)) {
@@ -26,7 +29,12 @@ const TagsDropdown = ({
     e.preventDefault()
     setSelectedTags(selectedTags)
     setShowDropdown(false)
+    setSearchQuery('')
   }
+
+  const filteredTags = tagsOptions.filter((tag) =>
+    tag.value.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <div className="tags-dropdown">
@@ -36,12 +44,21 @@ const TagsDropdown = ({
           type="text"
           className="tags-dropdown__input"
           placeholder="Wyszukaj grupę lub tag"
+          value={searchQuery}
           onFocus={() => setShowDropdown(true)}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
+        {searchQuery && (
+          <img
+            src={ClearIcon}
+            className="tags-dropdown__search--clear"
+            onClick={() => setSearchQuery('')}
+          />
+        )}
       </div>
       {showDropdown && (
         <form className="tags-dropdown__options" onSubmit={handleSubmit}>
-          {tagsOptions.map((tag, index) => (
+          {filteredTags.map((tag, index) => (
             <Checkbox
               value={tag.value}
               key={index}

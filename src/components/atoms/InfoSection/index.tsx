@@ -4,7 +4,7 @@ import { InfoSectionProps } from './interface'
 import classNames from 'classnames'
 
 const InfoSection = ({ tagsAmount }: InfoSectionProps) => {
-  const isPositive = tagsAmount >= 5
+  const isPositive = tagsAmount >= 4
   const className = isPositive ? 'indicator__status--positive' : 'indicator__status--negative'
 
   const renderTagsAdvancement = () => {
@@ -26,7 +26,7 @@ const InfoSection = ({ tagsAmount }: InfoSectionProps) => {
         </span>{' '}
         <ul className="indicator__status">{renderTagsAdvancement()}</ul>
       </div>
-      {!isPositive && (
+      {tagsAmount < 5 && (
         <div className="info-section__tags-info">
           <img src={FilledInfoIcon} />{' '}
           {`Zbyt mało tagów. Dodaj jeszcze ${5 - tagsAmount} aby poprawić
