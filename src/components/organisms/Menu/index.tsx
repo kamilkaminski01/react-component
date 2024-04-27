@@ -1,12 +1,12 @@
 import './style.scss'
-import SelectForm from 'components/molecules/SelectForm'
+import TagForm from 'components/organisms/TagForm'
 import SideMenu from 'components/atoms/SideMenu'
 
 const Menu = () => {
   return (
     <div className="menu">
       <SideMenu />
-      <SelectForm />
+      <TagForm />
     </div>
   )
 }
