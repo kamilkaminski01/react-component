@@ -1,11 +1,12 @@
 import './style.scss'
 import { TagsDropdownProps } from './interface'
 import SearchIcon from 'assets/icons/search-icon.svg'
-import { tagsOptions } from 'utils/consts'
 import Checkbox from 'components/atoms/Checkbox'
 import { FormEvent, useState } from 'react'
 import classNames from 'classnames'
 import ClearIcon from 'assets/icons/clear-icon.svg'
+import { ITag } from 'models/tag'
+import useTags from 'hooks/useTags'
 
 const TagsDropdown = ({
   showDropdown,
@@ -13,6 +14,7 @@ const TagsDropdown = ({
   selectedTags,
   setSelectedTags
 }: TagsDropdownProps) => {
+  const { mockedTags } = useTags()
   const [searchQuery, setSearchQuery] = useState('')
 
   const handleCheckboxChange = (value: string) => {
@@ -32,8 +34,8 @@ const TagsDropdown = ({
     setSearchQuery('')
   }
 
-  const filteredTags = tagsOptions.filter((tag) =>
-    tag.value.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredTags = mockedTags?.filter((tag: ITag) =>
+    tag.name.toLowerCase().includes(searchQuery.toLowerCase())
   )
 
   return (
@@ -58,14 +60,14 @@ const TagsDropdown = ({
       </div>
       {showDropdown && (
         <form className="tags-dropdown__options" onSubmit={handleSubmit}>
-          {filteredTags.map((tag, index) => (
+          {filteredTags?.map((tag, index) => (
             <Checkbox
-              value={tag.value}
+              value={tag.name}
               key={index}
-              checked={selectedTags.includes(tag.value)}
-              onChange={() => handleCheckboxChange(tag.value)}>
+              checked={selectedTags.includes(tag.name)}
+              onChange={() => handleCheckboxChange(tag.name)}>
               <div className="options__wrapper-content">
-                <p className="options__wrapper-content__value">{tag.value}</p>
+                <p className="options__wrapper-content__value">{tag.name}</p>
                 <p className="options__wrapper-content__amount">{`+${tag.amount}`}</p>
               </div>
             </Checkbox>
